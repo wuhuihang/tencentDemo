@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  max-width: 700px;
+  padding: 0 20px;
+  font: 400 16px/1.7 'Microsoft JhengHei', sans-serif;
+  color: #444;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.avatar {
+  border-radius: 64px;
+}
+.nav a {
+  padding: 0 6px 0 6px;
+  text-decoration: underline;
+}
+.nav a:hover {
+  cursor: pointer;
+  color: #555;
+  -moz-text-decoration-color: rgba(0, 0, 0, 0.6);
+  text-decoration-color: rgba(0, 0, 0, 0.6);
+}
+article {
+  animation: fade-in;
+  animation-duration: 1s;
+  -webkit-animation: fade-in 1s;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

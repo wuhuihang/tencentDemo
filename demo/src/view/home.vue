@@ -7,15 +7,15 @@
     <p class="indexcolor nav">
       Specializing in front-end development for more than 4 years @ ShenZhen .
       More
-      <span>About Me</span>
+      <router-link to="/About">About Me</router-link>
     </p>
     <p class="indexcolor dizhi">ShenZhen · China</p>
     <p class="nav">
-      <span>About</span>
-      <span>Archives</span>
-      <span>Tags</span>
-      <span>Chat</span>
-      <span>Service</span>
+      <router-link to="/About">About</router-link>
+      <router-link to="/Archives">Archives</router-link>
+      <router-link to="/Tags">Tags</router-link>
+      <router-link to="/Chat">Chat</router-link>
+      <router-link to="/About">Service</router-link>
     </p>
   </div>
 </template>
@@ -24,29 +24,27 @@
 
 export default {
   name: 'app',
+  mounted () {
+    // console.log(this.$services.$Utils.getCurdate(3))
+  },
   components: {
   }
 }
 </script>
 
-<style>
-.indexcolor,
-.willerce a {
-  color: #0a0a0a !important;
+<style scoped>
+body {
+  font: 400 16px/1.62 "Microsoft JhengHei", sans-serif;
+  color: #535353;
+  overflow: hidden;
+}
+.indexcolor {
+  color: #0a0a0a;
 }
 .indexcolor.dizhi {
   height: 24px;
   line-height: 24px;
   margin: 15px 0;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font: 400 16px/1.62 "pop", "Microsoft JhengHei", sans-serif;
-  color: #535353;
-  overflow: hidden;
 }
 .willerce {
   text-align: center;
@@ -67,38 +65,6 @@ h1 {
   color: #424242;
   margin-bottom: 20px;
 }
-.avatar {
-  border-radius: 64px;
-}
-.nav span {
-  padding: 0 6px 0 6px;
-  text-decoration: underline;
-}
-.nav span:hover {
-  cursor: pointer;
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .willerce {
   animation: fade-in;
   animation-duration: 1s;
@@ -110,18 +76,5 @@ h1 {
   height: 128px;
   margin: 0 auto;
   margin-bottom: 35px;
-}
-.zjgx {
-  position: absolute;
-  background: #f00;
-  font-size: 16px;
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
-  text-align: center;
-  top: 0px;
-  right: 0px;
-  border-radius: 20px;
-  color: #fff;
 }
 </style>
