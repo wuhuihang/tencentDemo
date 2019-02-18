@@ -5,7 +5,7 @@
     </div>
     <h1 class="indexcolor">Crazy huihui</h1>
     <p class="indexcolor nav">
-      Specializing in front-end development for more than 10 years @ ShenZhen .
+      Specializing in front-end development for more than 4 years @ ShenZhen .
       More
       <router-link to="/About">About Me</router-link>
     </p>
