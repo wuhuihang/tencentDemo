@@ -4,6 +4,7 @@ import Home from '@/view/home'
 import Frame from '@/view/frame'
 import About from '@/view/about/about'
 import Archives from '@/view/archives/archives'
+import Archive from '@/view/archives/archive'
 import Chat from '@/view/chat/chat'
 import Service from '@/view/service/service'
 import Tags from '@/view/tags/tags'
@@ -35,6 +36,11 @@ export default new Router({
           path: '/Archives',
           name: 'Archives',
           component: Archives
+        },
+        {
+          path: '/Archive',
+          name: 'Archive',
+          component: Archive
         },
         {
           path: '/Chat',

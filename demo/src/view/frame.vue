@@ -1,7 +1,9 @@
 <template>
   <div class="frame">
     <div class="nav">
-      <img class="avatar" width="26" height="26" src="../assets/img/huihui.jpg">
+      <router-link to="/" tag="div">
+        <img class="avatar" width="26" height="26" src="../assets/img/huihui.jpg">
+      </router-link>
       <div class="navBody">
         <router-link to="/About">About</router-link>
         <span>·</span>
@@ -15,6 +17,7 @@
       </div>
     </div>
     <router-view></router-view>
+    <footer>Copyright ©2019 huihui Powered by whh</footer>
   </div>
 </template>
 
@@ -42,6 +45,9 @@ export default {
   top: 0;
   left: 0;
 }
+.nav .router-link-active {
+  cursor: pointer;
+}
 .navBody {
   display: inline-block;
   margin-left: 43px;
@@ -54,5 +60,11 @@ export default {
 }
 .navBody span {
   padding: 0 10px;
+}
+footer {
+  margin-top: 50px;
+  padding-bottom: 10px;
+  color: #888;
+  font-size: 13px;
 }
 </style>
