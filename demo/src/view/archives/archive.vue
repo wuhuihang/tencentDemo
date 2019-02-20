@@ -2,6 +2,7 @@
   <article>
     <header v-text="archive.title"></header>
     <div v-html="archive.content"></div>
+    <!-- <div></div> -->
     <div class="sxwk">
       <div v-if="archive&&archive.nextArchive&&archive.nextArchive.title">下一篇：
         <router-link
@@ -52,7 +53,7 @@ p {
   margin-bottom: 30px;
   list-style: none;
   word-break: break-all;
-  line-height: 30px;
+  line-height: 20px;
   word-wrap: break-word;
   color: #fff;
   font-size: 14px;
