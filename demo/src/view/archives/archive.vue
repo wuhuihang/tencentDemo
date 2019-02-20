@@ -1,26 +1,38 @@
 <template>
   <article>
-    <header>CentOS 7，短时间就断线的处理</header>
-    <div>
-      <p>编辑一下CentOS的: /etc/ssh/sshd_config</p>
-      <p class="code">#TCPKeepAlive yes
-        <br>#ClientAliveInterval 0
-      </p>
-      <p>去掉前面的#号，并将0改为3
-        <br>然后重启service sshd restart
-      </p>
-    </div>
-    <div class="sxwk">上一篇：
-      <router-link to="/About">LNMP FTP 一直连不上</router-link>
+    <header v-text="archive.title"></header>
+    <div v-html="archive.content"></div>
+    <div class="sxwk">
+      <div v-if="archive&&archive.nextArchive&&archive.nextArchive.title">下一篇：
+        <router-link
+          :to="{path:'/Archive',query:{id:archive.nextArchive.id}}"
+        >{{archive.nextArchive.title}}</router-link>
+      </div>
+      <div v-if="archive&&archive.prevArchive&&archive.prevArchive.title">上一篇：
+        <router-link
+          :to="{path:'/Archive',query:{id:archive.prevArchive.id}}"
+        >{{archive.prevArchive.title}}</router-link>
+      </div>
     </div>
   </article>
 </template>
 
 <script>
-
+import archives from '../../service/archives.js'
 export default {
   name: 'archive',
-  components: {
+  data () {
+    return {
+      archive: {}
+    }
+  },
+  watch: {
+    $route () {
+      this.archive = archives[this.$route.query.id]
+    }
+  },
+  mounted () {
+    this.archive = archives[this.$route.query.id]
   }
 }
 </script>
@@ -33,11 +45,10 @@ header {
 p {
   margin-top: 0;
   margin-bottom: 20px;
-  word-break: break-all;
 }
 .code {
   background: #48484a;
-  padding: 30px 30px 30px;
+  padding: 20px 20px 20px;
   margin-bottom: 30px;
   list-style: none;
   word-break: break-all;

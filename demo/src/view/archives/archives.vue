@@ -1,22 +1,12 @@
 <template>
   <article>
-    <div class="mod-archive__item">
-      <div class="mod-archive__year">2018</div>
+    <div class="mod-archive__item" v-for="(item, index) in archives" :key="index">
+      <div class="mod-archive__year">{{item.year}}</div>
       <ul class="mod-archive__list">
-        <li>
-          <time class="mod-archive__time">2017-12-04</time>
+        <li v-for="(item2, index2) in item.archiveList" :key="index2">
+          <time class="mod-archive__time">{{item2.publishTime}}</time>
           <span>&nbsp;-&nbsp;</span>
-          <router-link to="/Archive">http://www.wpke.net/tags</router-link>
-        </li>
-      </ul>
-    </div>
-    <div class="mod-archive__item">
-      <div class="mod-archive__year">2017</div>
-      <ul class="mod-archive__list">
-        <li>
-          <time class="mod-archive__time">2017-01-12</time>
-          <span>&nbsp;-&nbsp;</span>
-          <router-link to="/Archive">WordPress 性能优化收费服务</router-link>
+          <router-link :to="{path:'/Archive',query:{id:item2.id}}">{{item2.title}}</router-link>
         </li>
       </ul>
     </div>
@@ -24,10 +14,32 @@
 </template>
 
 <script>
-
+import archives from '../../service/archives.js'
 export default {
   name: 'archives',
-  components: {
+  data () {
+    return {
+      archives: []
+    }
+  },
+  mounted () {
+    let newArchives = []
+    let newIndex = 0
+    archives.forEach((item, index) => {
+      if (index === 0) {
+        newArchives[newIndex] = {}
+        newArchives[newIndex].year = item.year
+      } else {
+        if (newArchives[newIndex].year !== item.year) {
+          newIndex++
+          newArchives[newIndex] = {}
+          newArchives[newIndex].year = item.year
+        }
+      }
+      !newArchives[newIndex].archiveList && (newArchives[newIndex].archiveList = [])
+      newArchives[newIndex].archiveList.push(item)
+    })
+    this.archives = newArchives
   }
 }
 </script>
