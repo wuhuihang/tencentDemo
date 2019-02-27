@@ -3,11 +3,11 @@ import Router from 'vue-router'
 import Home from '@/view/home'
 import Frame from '@/view/frame'
 import About from '@/view/about/about'
-import Archives from '@/view/archives/archives'
-import Archive from '@/view/archives/archive'
-import Chat from '@/view/chat/chat'
+import Blogs from '@/view/blogs/blogs'
+import Blog from '@/view/blogs/blog'
+import Admin from '@/view/admin/admin'
 import Service from '@/view/service/service'
-import Tags from '@/view/tags/tags'
+import Chat from '@/view/chat/chat'
 import service from '@/service'
 
 Vue.use(Router)
@@ -33,14 +33,14 @@ export default new Router({
           component: About
         },
         {
-          path: '/Archives',
-          name: 'Archives',
-          component: Archives
+          path: '/Blogs',
+          name: 'Blogs',
+          component: Blogs
         },
         {
-          path: '/Archive',
-          name: 'Archive',
-          component: Archive
+          path: '/Blog',
+          name: 'Blog',
+          component: Blog
         },
         {
           path: '/Chat',
@@ -51,13 +51,13 @@ export default new Router({
           path: '/Service',
           name: 'Service',
           component: Service
-        },
-        {
-          path: '/Tags',
-          name: 'Tags',
-          component: Tags
         }
       ]
+    },
+    {
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
     }
   ]
 })

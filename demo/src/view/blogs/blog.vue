@@ -1,39 +1,45 @@
 <template>
   <article>
-    <header v-text="archive.title"></header>
-    <div v-html="archive.content"></div>
+    <header v-text="blog.title"></header>
+    <div v-html="blog.content"></div>
     <!-- <div></div> -->
     <div class="sxwk">
-      <div v-if="archive&&archive.nextArchive&&archive.nextArchive.title">下一篇：
-        <router-link
-          :to="{path:'/Archive',query:{id:archive.nextArchive.id}}"
-        >{{archive.nextArchive.title}}</router-link>
+      <div v-if="blog&&blog.nextBlog&&blog.nextBlog.title">下一篇：
+        <router-link :to="{path:'/Blog',query:{id:blog.nextBlog.id}}">{{blog.nextBlog.title}}</router-link>
       </div>
-      <div v-if="archive&&archive.prevArchive&&archive.prevArchive.title">上一篇：
-        <router-link
-          :to="{path:'/Archive',query:{id:archive.prevArchive.id}}"
-        >{{archive.prevArchive.title}}</router-link>
+      <div v-if="blog&&blog.prevBlog&&blog.prevBlog.title">上一篇：
+        <router-link :to="{path:'/Blog',query:{id:blog.prevBlog.id}}">{{blog.prevBlog.title}}</router-link>
       </div>
     </div>
   </article>
 </template>
 
 <script>
-import archives from '../../service/archives.js'
+import blogs from '../../service/blogs.js'
 export default {
-  name: 'archive',
+  name: 'blog',
   data () {
     return {
-      archive: {}
+      blog: {}
     }
   },
   watch: {
     $route () {
-      this.archive = archives[this.$route.query.id]
+      this.getBlog()
     }
   },
   mounted () {
-    this.archive = archives[this.$route.query.id]
+    this.getBlog()
+  },
+  methods: {
+    getBlog () {
+      let self = this
+      self.$HttpServer.get('/api/blogs/' + self.$route.query.id).then(blog => {
+        self.blog = blog
+      }).catch(err => {
+        console.log('err', err)
+      })
+    }
   }
 }
 </script>

@@ -1,17 +1,8 @@
-import Utils from './Utils.js';
-
-const services = [
-    Utils
-];
+// import Utils from './Utils.js'
+import HttpServer from './httpServer.js'
 
 export default {
-    install(Vue) {
-        let $services = {};
-        services.map(service => {
-            if (service.name) {
-                $services['$' + service.name] = service;
-            }
-        });
-        Vue.prototype.$services = $services;
-    }
+  install(Vue) {
+    Vue.prototype.$HttpServer = HttpServer
+  }
 }

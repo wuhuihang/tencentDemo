@@ -12,10 +12,10 @@
     <p class="indexcolor dizhi">ShenZhen · China</p>
     <p class="nav">
       <router-link to="/About">About</router-link>
-      <router-link to="/Archives">Archives</router-link>
-      <router-link to="/Tags">Tags</router-link>
-      <router-link to="/Chat">Chat</router-link>
-      <router-link to="/About">Service</router-link>
+      <router-link to="/Blogs">Blogs</router-link>
+      <router-link to="/Admin">Admin</router-link>
+      <!-- <router-link to="/Chat">Chat</router-link>
+      <router-link to="/About">Service</router-link>-->
     </p>
   </div>
 </template>

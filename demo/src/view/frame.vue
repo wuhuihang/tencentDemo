@@ -7,13 +7,13 @@
       <div class="navBody">
         <router-link to="/About">About</router-link>
         <span>·</span>
-        <router-link to="/Archives">Archives</router-link>
+        <router-link to="/Blogs">Blogs</router-link>
         <span>·</span>
-        <router-link to="/Tags">Tags</router-link>
-        <span>·</span>
+        <router-link to="/Admin">Admin</router-link>
+        <!-- <span>·</span>
         <router-link to="/Chat">Chat</router-link>
         <span>·</span>
-        <router-link to="/About">Service</router-link>
+        <router-link to="/About">Service</router-link>-->
       </div>
     </div>
     <router-view></router-view>

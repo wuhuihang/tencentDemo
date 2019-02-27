@@ -1,5 +1,5 @@
 <template>
-  <article>about</article>
+  <article>hello,my name is wuhuihang.</article>
 </template>
 
 <script>
