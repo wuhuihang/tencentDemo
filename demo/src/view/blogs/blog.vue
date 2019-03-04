@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import blogs from '../../service/blogs.js'
+// import blogs from '../../service/blogs.js'
 export default {
   name: 'blog',
   data () {
@@ -53,6 +53,7 @@ p {
   margin-top: 0;
   margin-bottom: 20px;
 }
+pre,
 .code {
   background: #48484a;
   padding: 20px 20px 20px;
