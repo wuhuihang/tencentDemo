@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/view/home'
 import Frame from '@/view/frame'
 import About from '@/view/about/about'
 import Blogs from '@/view/blogs/blogs'
 import Blog from '@/view/blogs/blog'
 import Admin from '@/view/admin/admin'
-import Service from '@/view/service/service'
-import Chat from '@/view/chat/chat'
 import service from '@/service'
 
 Vue.use(Router)
@@ -18,8 +15,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      redirect: '/Blogs'
     },
     {
       path: '/Frame',
@@ -41,16 +37,6 @@ export default new Router({
           path: '/Blog',
           name: 'Blog',
           component: Blog
-        },
-        {
-          path: '/Chat',
-          name: 'Chat',
-          component: Chat
-        },
-        {
-          path: '/Service',
-          name: 'Service',
-          component: Service
         }
       ]
     },

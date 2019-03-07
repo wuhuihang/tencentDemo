@@ -41,7 +41,12 @@ export default {
         content: ''
       },
       editorOption: {
-        theme: "bubble"
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline', 'strike']
+            // ,['blockquote', 'code-block']
+          ]
+        }
       },
       components: {
         quillEditor

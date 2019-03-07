@@ -1,10 +1,10 @@
 <template>
   <article>
-    <div class="mod-blog__item" v-for="(item, index) in blogs" :key="index">
-      <div class="mod-blog__year">{{item.year}}</div>
-      <ul class="mod-blog__list">
+    <div v-for="(item, index) in blogs" :key="index">
+      <div class="blog-year">{{item.year}}</div>
+      <ul class="blog-list">
         <li v-for="(item2, index2) in item.blogList" :key="index2">
-          <time class="mod-blog__time">{{item2.publishTime}}</time>
+          <time class="blog-time">{{item2.publishTime}}</time>
           <span>&nbsp;-&nbsp;</span>
           <router-link :to="{path:'/Blog',query:{id:item2.id}}">{{item2.title}}</router-link>
         </li>
@@ -50,33 +50,36 @@ export default {
 </script>
 
 <style>
-.mod-blog__year {
+.blog-year {
   color: #999;
   font-family: pop, microsoft jhenghei, sans-serif;
 }
-.mod-blog__list {
+.blog-list {
   margin: 16px 0;
   padding-left: 40px;
 }
-.mod-blog__list li {
+.blog-list li {
   line-height: 30px;
   margin-bottom: 2px;
 }
-.mod-blog__list li a {
+.blog-list li a {
   color: #111;
   word-wrap: break-word;
   -moz-text-decoration-color: rgba(0, 0, 0, 0.4);
   text-decoration-color: rgba(0, 0, 0, 0.4);
 }
-.mod-blog__list li a:hover {
+.blog-list li a:hover {
   cursor: pointer;
   color: #555;
   -moz-text-decoration-color: rgba(0, 0, 0, 0.6);
   text-decoration-color: rgba(0, 0, 0, 0.6);
 }
-.mod-blog__time {
+.blog-time {
   color: #666;
   font-family: pop, microsoft jhenghei, sans-serif;
   font-size: 14px;
+}
+.bg {
+  width: 100%;
 }
 </style>

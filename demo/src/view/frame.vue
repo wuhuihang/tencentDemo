@@ -1,23 +1,21 @@
 <template>
-  <div class="frame">
-    <div class="nav">
-      <router-link to="/" tag="div">
-        <img class="avatar" width="26" height="26" src="../assets/img/huihui.jpg">
+  <div class="frame centerBody">
+    <header>
+      <router-link to="/Blogs" tag="div">
+        <img class="logo" width="56" height="56" src="../assets/img/header.jpg">
       </router-link>
-      <div class="navBody">
+      <div class="router">
         <router-link to="/About">About</router-link>
         <span>·</span>
-        <router-link to="/Blogs">Blogs</router-link>
+        <a href="https://github.com/wuhuihang?tab=repositories" target="_blank">GitHub</a>
+        <!-- <span>·</span>
+        <router-link to="/Blogs">Blogs</router-link>-->
         <span>·</span>
         <router-link to="/Admin">Admin</router-link>
-        <!-- <span>·</span>
-        <router-link to="/Chat">Chat</router-link>
-        <span>·</span>
-        <router-link to="/About">Service</router-link>-->
       </div>
-    </div>
+    </header>
     <router-view></router-view>
-    <footer>Copyright ©2019 huihui Powered by whh</footer>
+    <footer>Copyright ©2019 wuhuihang All Rights Reserved. Record No. 粤ICP备19016435号-1</footer>
   </div>
 </template>
 
@@ -34,37 +32,50 @@ export default {
 </script>
 
 <style scoped>
-.nav {
+header {
   margin-top: 40px;
   margin-bottom: 60px;
-  text-align: left;
+  height: 56px;
   position: relative;
+  font: 400 16px/1.7 "pop", "Microsoft JhengHei", sans-serif;
 }
-.nav img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.nav .router-link-active {
+.logo {
+  float: left;
+  border-radius: 28px;
   cursor: pointer;
 }
-.navBody {
-  display: inline-block;
-  margin-left: 43px;
+.router {
+  height: 56px;
+  line-height: 56px;
+  float: left;
+  margin-left: 28px;
 }
-.navBody > * {
-  display: inline-block;
+.router a {
   color: #111;
+  display: inline-block;
   height: 26px;
   line-height: 26px;
+  text-decoration: none;
 }
-.navBody span {
+.router a:hover {
+  color: #555;
+  text-decoration: underline;
+}
+.router span {
   padding: 0 10px;
 }
 footer {
-  margin-top: 50px;
-  padding-bottom: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
   color: #888;
   font-size: 13px;
+  background: #fff;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 -2px 3px -1px #888;
 }
 </style>
