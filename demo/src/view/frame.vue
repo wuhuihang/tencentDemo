@@ -1,17 +1,17 @@
 <template>
   <div class="frame centerBody">
     <header>
-      <router-link to="/Blogs" tag="div">
+      <router-link to="/About" tag="div">
         <img class="logo" width="56" height="56" src="../assets/img/header.jpg">
       </router-link>
       <div class="router">
-        <router-link to="/About">About</router-link>
+        <router-link to="/Blogs">Blogs</router-link>
         <span>·</span>
         <a href="https://github.com/wuhuihang?tab=repositories" target="_blank">GitHub</a>
         <!-- <span>·</span>
         <router-link to="/Blogs">Blogs</router-link>-->
         <span>·</span>
-        <router-link to="/Admin">Admin</router-link>
+        <router-link to="/Login">Admin</router-link>
       </div>
     </header>
     <router-view></router-view>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-header {
+.frame header {
   margin-top: 40px;
   margin-bottom: 60px;
   height: 56px;
