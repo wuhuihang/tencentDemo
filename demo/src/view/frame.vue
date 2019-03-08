@@ -70,7 +70,7 @@ export default {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transition: all 0.2s;
+  transition: all 0.5s;
 }
 .router a:hover:after,
 .router a:active:after {

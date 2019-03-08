@@ -18,27 +18,27 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/Blogs'
+      redirect: '/blogs'
     },
     {
-      path: '/Frame',
-      name: 'Frame',
+      path: '/frame',
+      name: 'frame',
       component: Frame,
-      redirect: '/About',
+      redirect: '/about',
       children: [
         {
-          path: '/About',
-          name: 'About',
+          path: '/about',
+          name: 'about',
           component: About
         },
         {
-          path: '/Blogs',
-          name: 'Blogs',
+          path: '/blogs',
+          name: 'blogs',
           component: Blogs
         },
         {
-          path: '/Blog',
-          name: 'Blog',
+          path: '/blog',
+          name: 'blog',
           component: Blog
         }
       ]
@@ -52,16 +52,16 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       component: Admin,
-      redirect: '/admin/CreateBlog',
+      redirect: '/admin/createBlog',
       children: [
         {
-          path: '/admin/Dashboard',
-          name: 'Dashboard',
+          path: '/admin/dashboard',
+          name: 'dashboard',
           component: Dashboard
         },
         {
-          path: '/admin/CreateBlog',
-          name: 'CreateBlog',
+          path: '/admin/createBlog',
+          name: 'createBlog',
           component: CreateBlog
         }
       ]

@@ -5,17 +5,16 @@
     <!-- <div></div> -->
     <div class="article-router">
       <div v-if="blog&&blog.nextBlog&&blog.nextBlog.title">下一篇：
-        <router-link :to="{path:'/Blog',query:{id:blog.nextBlog.id}}">{{blog.nextBlog.title}}</router-link>
+        <router-link :to="{path:'/blog',query:{id:blog.nextBlog.id}}">{{blog.nextBlog.title}}</router-link>
       </div>
       <div v-if="blog&&blog.prevBlog&&blog.prevBlog.title">上一篇：
-        <router-link :to="{path:'/Blog',query:{id:blog.prevBlog.id}}">{{blog.prevBlog.title}}</router-link>
+        <router-link :to="{path:'/blog',query:{id:blog.prevBlog.id}}">{{blog.prevBlog.title}}</router-link>
       </div>
     </div>
   </article>
 </template>
 
 <script>
-// import blogs from '../../service/blogs.js'
 export default {
   name: 'blog',
   data () {

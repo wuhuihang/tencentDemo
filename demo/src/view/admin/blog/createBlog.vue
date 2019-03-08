@@ -76,7 +76,7 @@ export default {
     publish () {
       this.$HttpServer.post('/api/blogs', this.blog).then(data => {
         console.log(data)
-        this.$router.push({ path: '/Blogs' })
+        this.$router.push({ path: '/blogs' })
       }).catch(err => {
         console.log('err', err)
       })

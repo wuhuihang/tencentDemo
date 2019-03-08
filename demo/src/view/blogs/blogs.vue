@@ -6,7 +6,7 @@
         <li v-for="(item2, index2) in item.blogList" :key="index2">
           <time class="blog-time">{{item2.publishTime}}</time>
           <span>&nbsp;-&nbsp;</span>
-          <router-link :to="{path:'/Blog',query:{id:item2.id}}">{{item2.title}}</router-link>
+          <router-link :to="{path:'/blog',query:{id:item2.id}}">{{item2.title}}</router-link>
         </li>
       </ul>
     </div>
