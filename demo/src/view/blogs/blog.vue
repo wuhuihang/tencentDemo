@@ -32,9 +32,8 @@ export default {
   },
   methods: {
     getBlog () {
-      let self = this
-      self.$HttpServer.get('/api/blogs/' + self.$route.query.id).then(blog => {
-        self.blog = blog
+      this.$HttpServer.get('/api/blogs/' + this.$route.query.id).then(blog => {
+        this.blog = blog
       }).catch(err => {
         console.log('err', err)
       })
