@@ -23,11 +23,47 @@ body {
   overflow-x: hidden;
 }
 article {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   animation: fade-in;
   animation-duration: 1s;
   -webkit-animation: fade-in 1s;
   overflow-y: auto;
+}
+.article header {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.article p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.article p img {
+  width: 100%;
+  max-width: 400px;
+}
+pre,
+.code {
+  background: #48484a;
+  padding: 20px 20px 20px;
+  margin-bottom: 30px;
+  list-style: none;
+  word-break: break-all;
+  line-height: 20px;
+  word-wrap: break-word;
+  color: #fff;
+  font-size: 14px;
+}
+.article-router {
+  list-style-type: none;
+  padding: 20px 0;
+  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2;
+}
+.article-router a {
+  color: #111;
+  word-wrap: break-word;
+  -moz-text-decoration-color: rgba(0, 0, 0, 0.4);
+  text-decoration-color: rgba(0, 0, 0, 0.4);
 }
 @keyframes fade-in {
   0% {

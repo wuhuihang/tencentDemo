@@ -11,7 +11,7 @@
         <!-- <span>·</span>
         <router-link to="/Blogs">Blogs</router-link>-->
         <span>·</span>
-        <router-link to="/Login">Admin</router-link>
+        <router-link to="/login">Admin</router-link>
       </div>
     </header>
     <router-view></router-view>
@@ -50,32 +50,42 @@ export default {
   float: left;
   margin-left: 28px;
 }
-.router a {
+.router a,
+.router a:link {
   color: #111;
   display: inline-block;
   height: 26px;
   line-height: 26px;
   text-decoration: none;
+  position: relative;
 }
 .router a:hover {
   color: #555;
-  text-decoration: underline;
+}
+.router a:after {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: #555;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transition: all 0.2s;
+}
+.router a:hover:after,
+.router a:active:after {
+  left: 0%;
+  width: 100%;
 }
 .router span {
   padding: 0 10px;
 }
 footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  padding: 0 20px;
-  height: 50px;
-  line-height: 50px;
+  padding: 12px 0;
+  font-size: 12px;
+  line-height: 24px;
   color: #888;
-  font-size: 13px;
   background: #fff;
-  max-width: 700px;
-  margin: 0 auto;
-  box-shadow: 0 -2px 3px -1px #888;
 }
 </style>

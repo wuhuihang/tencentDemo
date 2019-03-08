@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="article">
     <header>关于博主</header>
     <p>你好，欢迎来到我的博客。</p>
     <p>我的姓名是「吴辉杭」，出生于 1992 年。我是一名前端程序员，居住在广东深圳。</p>
@@ -8,7 +8,7 @@
     <p>我有轻微的强迫症和代码洁癖；我喜欢跑步，听音乐。</p>
     <p>这就是我：</p>
     <p>
-      <img width="400" src="../../assets/img/huihui.jpg">
+      <img src="../../assets/img/huihui.jpg">
     </p>
   </article>
 </template>
@@ -22,5 +22,5 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 </style>

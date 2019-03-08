@@ -44,23 +44,23 @@ export default new Router({
       ]
     },
     {
-      path: '/Login',
-      name: 'Login',
+      path: '/login',
+      name: 'login',
       component: Login
     },
     {
-      path: '/Admin',
-      name: 'Admin',
+      path: '/admin',
+      name: 'admin',
       component: Admin,
-      redirect: '/Admin/CreateBlog',
+      redirect: '/admin/CreateBlog',
       children: [
         {
-          path: '/Admin/Dashboard',
+          path: '/admin/Dashboard',
           name: 'Dashboard',
           component: Dashboard
         },
         {
-          path: '/Admin/CreateBlog',
+          path: '/admin/CreateBlog',
           name: 'CreateBlog',
           component: CreateBlog
         }
