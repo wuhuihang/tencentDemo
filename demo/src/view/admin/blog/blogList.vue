@@ -85,7 +85,7 @@ export default {
       })
     },
     editConfirm () {
-      this.$HttpServer.put('/api/blogs/' + this.blog.id, this.blog).then(data => {
+      this.$HttpServer.put('/api/blogs/' + this.blog.id, this.blog).then(() => {
         this.$message({
           type: 'success',
           message: '修改博客成功'
