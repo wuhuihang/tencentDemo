@@ -1,21 +1,21 @@
 <template>
   <div class="login">
-    <div class="login-box">
-      <div class="login-header">登录</div>
-      <div class="login-item">
-        <span class="login-name">
-          <i class="el-icon-service"></i>
-        </span>
-        <input class="login-input" v-model="userName" placeholder="输入账号" type="text">
+    <transition name="form-fade" mode="in-out">
+      <div class="login-box" v-show="showLogin">
+        <div class="login-header">后台管理系统</div>
+        <el-form :model="loginForm" :rules="rules" ref="loginForm">
+          <el-form-item prop="username">
+            <el-input v-model="loginForm.userName" placeholder="用户名"></el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input type="password" placeholder="密码" v-model="loginForm.userPassword"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="login" class="login-button">登陆</el-button>
+          </el-form-item>
+        </el-form>
       </div>
-      <div class="login-item">
-        <span class="login-name">
-          <i class="el-icon-goods"></i>
-        </span>
-        <input class="login-input" v-model="userPassword" placeholder="输入密码" type="password">
-      </div>
-      <el-button round @click="login">登录</el-button>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -25,16 +25,21 @@ export default {
   name: 'login',
   data () {
     return {
-      userName: '',
-      userPassword: ''
+      loginForm: {
+        userName: '',
+        userPassword: ''
+      },
+      rules: {},
+      showLogin: false
     }
   },
   mounted () {
+    this.showLogin = true
   },
   methods: {
     login () {
-      if (this.userName === 'admin') {
-        this.$router.push('/admin')
+      if (this.loginForm.userName === 'admin') {
+        this.$router.push('/manage')
       }
     }
   }
@@ -45,64 +50,41 @@ export default {
 .login {
   width: 100%;
   height: 100%;
-  background: url("../../assets/img/bg.jpg") fixed center center;
+  /* background: url("../../assets/img/bg.jpg") fixed center center; */
+  background-color: #2c3e50;
 }
 .login-box {
-  width: 280px;
-  height: 490px;
-  padding: 35px;
+  width: 320px;
+  height: 210px;
   position: absolute;
+  top: 50%;
   left: 50%;
-  top: 100px;
-  margin-left: -175px;
+  margin-top: -105px;
+  margin-left: -160px;
+  padding: 25px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fff;
 }
 .login-header {
-  text-align: center;
-  height: 20px;
-  font-size: 20px;
-  color: #ffffff;
-  height: 20px;
-  line-height: 20px;
-  padding: 0 0 35px 0;
-}
-.login-item {
-  height: 46px;
-  padding: 0 5px;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  position: relative;
-  border: rgba(255, 255, 255, 0.2) 2px solid;
-}
-.login-name {
-  width: 25px;
-  height: 25px;
-  background-position: -125px 0;
-  color: #fff;
   position: absolute;
-  margin: 12px 13px;
-  line-height: 20px;
-  text-align: center;
-}
-.login-input {
-  width: 220px;
-  height: 46px;
-  outline: none;
-  display: inline-block;
-  font-size: 14px;
-  margin-left: 50px;
-  border: none;
-  background: none;
-  line-height: 46px;
-  color: #ffffff;
-}
-input::-webkit-input-placeholder {
-  color: #ffffff;
-}
-.el-button.is-round {
   width: 100%;
-  background: #0096e6;
-  color: #ffffff;
-  height: 46px;
-  border: 1px solid #0096e6;
+  top: -100px;
+  left: 0;
+  font-size: 34px;
+  color: #fff;
+}
+.login-button {
+  width: 100%;
+  font-size: 16px;
+}
+.form-fade-enter-active,
+.form-fade-leave-active {
+  transition: all 1s;
+}
+.form-fade-enter,
+.form-fade-leave-active {
+  transform: translate3d(0, -50px, 0);
+  opacity: 0;
 }
 </style>

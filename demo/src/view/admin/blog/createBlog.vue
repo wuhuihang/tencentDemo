@@ -76,7 +76,7 @@ export default {
     publish () {
       this.$HttpServer.post('/api/blogs', this.blog).then(data => {
         console.log(data)
-        this.$router.push({ path: '/blogs' })
+        this.$router.push({ path: '/manage/blogList' })
       }).catch(err => {
         console.log('err', err)
       })
@@ -88,6 +88,7 @@ export default {
 <style scoped>
 .createBlog {
   max-width: 700px;
+  margin: 40px auto;
 }
 .createBlog > div {
   margin: 10px 0;
