@@ -3,16 +3,14 @@
     <transition name="form-fade" mode="in-out">
       <div class="login-box" v-show="showLogin">
         <div class="login-header">后台管理系统</div>
-        <el-form :model="login" :rules="rules" ref="loginForm">
+        <el-form :model="loginData" :rules="rules" ref="loginForm">
           <hh-form-item prop="username">
-            <el-input v-model="login.username" type="text" placeholder="用户名"></el-input>
+            <el-input v-model="loginData.username" type="text" placeholder="用户名"></el-input>
           </hh-form-item>
           <hh-form-item prop="password">
-            <el-input v-model="login.password" type="password" placeholder="密码"></el-input>
+            <el-input v-model="loginData.password" type="password" placeholder="密码"></el-input>
           </hh-form-item>
-          <hh-form-item>
-            <el-button type="primary" @click="login" class="login-button">登陆</el-button>
-          </hh-form-item>
+          <el-button type="primary" @click="login" class="login-button">登陆</el-button>
         </el-form>
       </div>
     </transition>
@@ -25,7 +23,7 @@ export default {
   name: 'login',
   data () {
     return {
-      login: {
+      loginData: {
         username: '',
         password: ''
       },
@@ -47,7 +45,7 @@ export default {
     login () {
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
-          if (this.login.username === 'admin') {
+          if (this.loginData.username === 'admin') {
             this.$router.push('/manage')
           }
         }
