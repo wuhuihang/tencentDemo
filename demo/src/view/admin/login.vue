@@ -47,7 +47,7 @@ export default {
     login () {
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
-          if (this.login.userName === 'admin') {
+          if (this.login.username === 'admin') {
             this.$router.push('/manage')
           }
         }
