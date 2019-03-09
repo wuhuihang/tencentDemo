@@ -10,8 +10,8 @@ const Blog = r => require(['@/view/blogs/blog'], r)
 const Login = r => require(['@/view/admin/login'], r)
 const Manage = r => require(['@/view/admin/common/manage'], r)
 const Dashboard = r => require(['@/view/admin/blog/dashboard'], r)
-const CreateBlog = r => require(['@/view/admin/blog/createBlog'], r)
-const BlogList = r => require(['@/view/admin/blog/blogList'], r)
+const CreateBlog = r => require(['@/view/admin/blog/create'], r)
+const BlogList = r => require(['@/view/admin/blog/list'], r)
 
 const routes = [
   {

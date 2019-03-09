@@ -3,16 +3,16 @@
     <transition name="form-fade" mode="in-out">
       <div class="login-box" v-show="showLogin">
         <div class="login-header">后台管理系统</div>
-        <el-form :model="loginForm" :rules="rules" ref="loginForm">
-          <el-form-item prop="username">
-            <el-input v-model="loginForm.userName" placeholder="用户名"></el-input>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input type="password" placeholder="密码" v-model="loginForm.userPassword"></el-input>
-          </el-form-item>
-          <el-form-item>
+        <el-form :model="login" :rules="rules" ref="loginForm">
+          <hh-form-item prop="username">
+            <el-input v-model="login.username" type="text" placeholder="用户名"></el-input>
+          </hh-form-item>
+          <hh-form-item prop="password">
+            <el-input v-model="login.password" type="password" placeholder="密码"></el-input>
+          </hh-form-item>
+          <hh-form-item>
             <el-button type="primary" @click="login" class="login-button">登陆</el-button>
-          </el-form-item>
+          </hh-form-item>
         </el-form>
       </div>
     </transition>
@@ -25,11 +25,18 @@ export default {
   name: 'login',
   data () {
     return {
-      loginForm: {
-        userName: '',
-        userPassword: ''
+      login: {
+        username: '',
+        password: ''
       },
-      rules: {},
+      rules: {
+        username: [
+          { required: true, message: '请输入用户名', trigger: ['blur', 'change'] },
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: ['blur', 'change'] },
+        ]
+      },
       showLogin: false
     }
   },
@@ -38,9 +45,13 @@ export default {
   },
   methods: {
     login () {
-      if (this.loginForm.userName === 'admin') {
-        this.$router.push('/manage')
-      }
+      this.$refs['loginForm'].validate((valid) => {
+        if (valid) {
+          if (this.login.userName === 'admin') {
+            this.$router.push('/manage')
+          }
+        }
+      });
     }
   }
 }
@@ -86,5 +97,13 @@ export default {
 .form-fade-leave-active {
   transform: translate3d(0, -50px, 0);
   opacity: 0;
+}
+.login .el-input {
+  width: 296px;
+}
+</style>
+<style>
+.login .el-form-item__content {
+  text-align: left;
 }
 </style>

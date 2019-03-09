@@ -5,12 +5,12 @@
         <menu-left></menu-left>
       </el-col>
       <el-col :span="20" style="height: 100%;overflow: auto;">
-        <keep-alive>
-          <div>
-            <breadcrumb></breadcrumb>
-            <router-view></router-view>
-          </div>
-        </keep-alive>
+        <!-- <keep-alive> -->
+        <div>
+          <breadcrumb></breadcrumb>
+          <router-view></router-view>
+        </div>
+        <!-- </keep-alive> -->
       </el-col>
     </el-row>
   </div>

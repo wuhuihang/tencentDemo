@@ -1,7 +1,7 @@
 import axios from 'axios'
 let httpServer = axios.create()
-httpServer.defaults.timeout = 5000
 
+httpServer.defaults.timeout = 5000
 httpServer.interceptors.request.use(
   config => {
     // config.data = JSON.stringify(config.data)
@@ -20,7 +20,7 @@ httpServer.interceptors.response.use(
     if (data.code === 0) {
       return Promise.resolve(data.data)
     } else {
-      return Promise.reject(data.data)
+      return Promise.reject(data.msg)
     }
   },
   err => {

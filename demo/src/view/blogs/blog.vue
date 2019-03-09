@@ -35,7 +35,10 @@ export default {
       this.$HttpServer.get('/api/blogs/' + this.$route.query.id).then(blog => {
         this.blog = blog
       }).catch(err => {
-        console.log('err', err)
+        this.$message({
+          type: 'error',
+          message: err
+        });
       })
     }
   }

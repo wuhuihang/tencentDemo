@@ -1,9 +1,9 @@
 <template>
   <article>
-    <div v-for="(item, index) in blogs" :key="index">
-      <div class="blog-year">{{item.year}}</div>
+    <div v-for="(value, key, index) in blogs" :key="index">
+      <div class="blog-year">{{key}}</div>
       <ul class="blog-list">
-        <li v-for="(item2, index2) in item.blogList" :key="index2">
+        <li v-for="(item2, index2) in value" :key="index2">
           <time class="blog-time">{{item2.publishTime}}</time>
           <span>&nbsp;-&nbsp;</span>
           <router-link :to="{path:'/blog',query:{id:item2.id}}">{{item2.title}}</router-link>
@@ -23,23 +23,11 @@ export default {
     }
   },
   mounted () {
-    let newBlogs = []
-    let newIndex = 0
+    let newBlogs = {}
     this.$HttpServer.get('/api/blogs').then(blogs => {
-      console.log(blogs)
       blogs.forEach((item, index) => {
-        if (index === 0) {
-          newBlogs[newIndex] = {}
-          newBlogs[newIndex].year = item.year
-        } else {
-          if (newBlogs[newIndex].year !== item.year) {
-            newIndex++
-            newBlogs[newIndex] = {}
-            newBlogs[newIndex].year = item.year
-          }
-        }
-        !newBlogs[newIndex].blogList && (newBlogs[newIndex].blogList = [])
-        newBlogs[newIndex].blogList.push(item)
+        (index === 0 || (index !== 0 && !newBlogs.hasOwnProperty(item.category))) && (newBlogs[item.category] = [])
+        newBlogs[item.category].push(item)
       })
       this.blogs = newBlogs
     }).catch(err => {
