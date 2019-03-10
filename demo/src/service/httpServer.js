@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 let httpServer = axios.create()
 
-httpServer.defaults.timeout = 5000
+httpServer.defaults.timeout = 30000
 httpServer.interceptors.request.use(
   config => {
     const token = sessionStorage.getItem('HH_BLOG_TOKEN')
