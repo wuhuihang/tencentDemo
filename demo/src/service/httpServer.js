@@ -1,10 +1,41 @@
 import Vue from 'vue'
 import axios from 'axios'
+import { Loading } from 'element-ui'
+
 let httpServer = axios.create()
+let loading
+let startLoading = () => {
+  loading = Loading.service({
+    lock: true,
+    text: '加载中……',
+    background: 'rgba(0, 0, 0, 0.7)'
+  })
+}
+let endLoading = () => {
+  loading.close()
+}
+let needLoadingRequestCount = 0
+let showFullScreenLoading = () => {
+  if (needLoadingRequestCount === 0) {
+    startLoading()
+  }
+  needLoadingRequestCount++
+}
+
+let tryHideFullScreenLoading = () => {
+  if (needLoadingRequestCount <= 0) return
+  needLoadingRequestCount--
+  if (needLoadingRequestCount === 0) {
+    endLoading()
+  }
+}
 
 httpServer.defaults.timeout = 30000
 httpServer.interceptors.request.use(
   config => {
+    if (!config.notShowLoading) {
+      showFullScreenLoading()
+    }
     const token = sessionStorage.getItem('HH_BLOG_TOKEN')
     if (token) {
       // Bearer是JWT的认证头部信息
@@ -19,6 +50,9 @@ httpServer.interceptors.request.use(
 httpServer.interceptors.response.use(
   response => {
     let data = response.data
+    if (!response.config.notShowLoading) {
+      tryHideFullScreenLoading()
+    }
     if (data.code === 0) {
       return Promise.resolve(data.data)
     } else {
