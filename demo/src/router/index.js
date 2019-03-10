@@ -15,6 +15,10 @@ const BlogList = r => require(['@/view/admin/blog/list'], r)
 
 const routes = [
   {
+    path: '*',
+    redirect: '/'
+  },
+  {
     path: '/',
     redirect: '/blogs'
   },
@@ -55,26 +59,48 @@ const routes = [
       {
         path: '/manage/dashboard',
         name: 'dashboard',
-        component: Dashboard
+        component: Dashboard,
+        meta: {
+          requireAuth: true
+        }
       },
       {
         path: '/manage/blogList',
         name: 'blogList',
         component: BlogList,
-        meta: ['数据管理', '博客列表']
+        meta: {
+          requireAuth: true,
+          breadcrumb: ['数据管理', '博客列表']
+        }
       },
       {
         path: '/manage/createBlog',
         name: 'createBlog',
         component: CreateBlog,
-        meta: ['添加数据', '添加博客']
+        meta: {
+          requireAuth: true,
+          breadcrumb: ['添加数据', '添加博客']
+        }
       }
     ]
   }
 ]
-
-export default new Router({
+let router = new Router({
   mode: 'history',
   // base: 'cyms',
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    const token = sessionStorage.getItem('HH_BLOG_TOKEN')
+    if (token && token !== 'null') {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
+export default router

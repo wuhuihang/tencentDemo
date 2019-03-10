@@ -52,11 +52,6 @@ export default {
           message: '删除成功'
         });
         this.initData()
-      }).catch(() => {
-        this.$message({
-          type: 'error',
-          message: '删除失败'
-        });
       })
     },
     editSuccess (isCancel) {

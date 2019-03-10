@@ -71,8 +71,6 @@ export default {
               message: '修改博客成功'
             });
             this.$emit('editSuccess')
-          }).catch(err => {
-            console.log('err', err)
           })
         } else {
           console.log('error submit!!');

@@ -2,8 +2,9 @@
   <div class="breadcrumb">
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/admin/dashboard' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="(item, index) in $route.meta.breadcrumb" :key="index">{{item}}</el-breadcrumb-item>
     </el-breadcrumb>
+    <el-button type="primary" class="quit" @click="quit">退出</el-button>
   </div>
 </template>
 
@@ -11,6 +12,16 @@
 export default {
   name: 'breadcrumb',
   methods: {
+    quit () {
+      this.$HttpServer.post('/api/signOut').then(data => {
+        this.$message({
+          type: 'success',
+          message: '退出成功'
+        });
+        this.$router.push('/login')
+        sessionStorage.setItem('HH_BLOG_TOKEN', '')
+      })
+    }
   }
 }
 </script>
@@ -25,5 +36,8 @@ export default {
   align-items: center;
   padding-left: 20px;
   box-sizing: border-box;
+}
+.quit {
+  margin-right: 10px;
 }
 </style>

@@ -45,9 +45,10 @@ export default {
     login () {
       this.$refs['loginForm'].validate((valid) => {
         if (valid) {
-          if (this.loginData.username === 'admin') {
+          this.$HttpServer.post('/api/login', this.loginData).then(data => {
+            sessionStorage.setItem('HH_BLOG_TOKEN', data.token)
             this.$router.push('/manage')
-          }
+          })
         }
       });
     }

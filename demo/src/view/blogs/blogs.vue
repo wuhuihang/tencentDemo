@@ -24,14 +24,12 @@ export default {
   },
   mounted () {
     let newBlogs = {}
-    this.$HttpServer.get('/api/blogs').then(blogs => {
+    this.$HttpServer.get('/api/outblogs').then(blogs => {
       blogs.forEach((item, index) => {
         (index === 0 || (index !== 0 && !newBlogs.hasOwnProperty(item.category))) && (newBlogs[item.category] = [])
         newBlogs[item.category].push(item)
       })
       this.blogs = newBlogs
-    }).catch(err => {
-      console.log('err', err)
     })
   }
 }

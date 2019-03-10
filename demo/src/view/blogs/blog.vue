@@ -32,13 +32,8 @@ export default {
   },
   methods: {
     getBlog () {
-      this.$HttpServer.get('/api/blogs/' + this.$route.query.id).then(blog => {
+      this.$HttpServer.get('/api/outblogs/' + this.$route.query.id).then(blog => {
         this.blog = blog
-      }).catch(err => {
-        this.$message({
-          type: 'error',
-          message: err
-        });
       })
     }
   }

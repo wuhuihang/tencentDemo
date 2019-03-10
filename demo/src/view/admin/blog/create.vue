@@ -104,8 +104,6 @@ export default {
           this.$HttpServer.post('/api/blogs', this.blog).then(data => {
             console.log(data)
             this.$router.push({ path: '/manage/blogList' })
-          }).catch(err => {
-            console.log('err', err)
           })
         } else {
           console.log('error submit!!');
