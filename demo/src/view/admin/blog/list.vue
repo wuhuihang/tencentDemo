@@ -2,6 +2,7 @@
   <div class="blogList">
     <el-table :data="blogs" style="width: 100%">
       <el-table-column label="标题" prop="title"></el-table-column>
+      <el-table-column label="标签" prop="category"></el-table-column>
       <el-table-column label="时间" prop="publishTime"></el-table-column>
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
