@@ -14,4 +14,5 @@ export default {
 </script>
 
 <style>
+@import "../public/index.css";
 </style>

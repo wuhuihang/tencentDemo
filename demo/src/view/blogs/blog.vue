@@ -41,4 +41,16 @@ export default {
 </script>
 
 <style>
+.article-router {
+  list-style-type: none;
+  padding: 20px 0;
+  border-bottom: 1px solid #f2f2f2;
+  border-top: 1px solid #f2f2f2;
+}
+.article-router a {
+  color: #111;
+  word-wrap: break-word;
+  -moz-text-decoration-color: rgba(0, 0, 0, 0.4);
+  text-decoration-color: rgba(0, 0, 0, 0.4);
+}
 </style>
