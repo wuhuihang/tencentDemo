@@ -23,4 +23,7 @@ export default {
 </script>
 
 <style scoped>
+article img {
+  border-radius: 10px;
+}
 </style>

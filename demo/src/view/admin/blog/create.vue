@@ -66,11 +66,12 @@ export default {
             // [{ 'direction': 'rtl' }],
             // [{ 'size': ['small', false, 'large', 'huge'] }],
             // [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            [{ 'color': [] }, { 'background': [] }]
+            [{ 'color': [] }, { 'background': [] }],
             // [{ 'font': [] }],
             // [{ 'align': [] }],
             // [{ 'clean': '源码编辑' }],
             // ['link', 'image', 'video']
+            ['image']
             // ,['sourceEditor']     //新添加的工具
           ]
         }
