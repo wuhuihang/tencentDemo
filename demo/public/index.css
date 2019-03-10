@@ -29,18 +29,6 @@ article {
   -webkit-animation: fade-in 1s;
   overflow-y: auto;
 }
-.article header {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-.article p {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-.article p img {
-  width: 100%;
-  max-width: 400px;
-}
 pre,
 .code {
   background: #48484a;

@@ -23,7 +23,19 @@ export default {
 </script>
 
 <style scoped>
-article img {
+.article img {
   border-radius: 10px;
+}
+.article header {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.article p {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.article p img {
+  width: 100%;
+  max-width: 400px;
 }
 </style>
