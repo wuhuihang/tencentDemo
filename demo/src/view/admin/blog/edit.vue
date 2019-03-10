@@ -49,7 +49,8 @@ export default {
           toolbar: [
             ['bold', 'italic', 'underline', 'strike'],
             ['blockquote', 'code-block'],
-            [{ 'color': [] }, { 'background': [] }]
+            [{ 'color': [] }, { 'background': [] }],
+            ['image']
           ]
         }
       }

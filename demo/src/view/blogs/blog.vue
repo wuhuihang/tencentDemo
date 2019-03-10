@@ -1,5 +1,5 @@
 <template>
-  <article class="article">
+  <article class="article blog">
     <header v-text="blog.title"></header>
     <div v-html="blog.content"></div>
     <!-- <div></div> -->
@@ -52,5 +52,16 @@ export default {
   word-wrap: break-word;
   -moz-text-decoration-color: rgba(0, 0, 0, 0.4);
   text-decoration-color: rgba(0, 0, 0, 0.4);
+}
+.article blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  padding-left: 16px;
+  margin-left: 0;
+}
+.blog img {
+  width: 100%;
+  margin: 14px 0 30px;
 }
 </style>
