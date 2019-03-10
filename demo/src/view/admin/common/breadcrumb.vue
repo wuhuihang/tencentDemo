@@ -13,7 +13,7 @@ export default {
   name: 'breadcrumb',
   methods: {
     quit () {
-      this.$HttpServer.post('/api/signOut').then(data => {
+      this.$HttpServer.post('/api/signOut').then(() => {
         this.$message({
           type: 'success',
           message: '退出成功'
