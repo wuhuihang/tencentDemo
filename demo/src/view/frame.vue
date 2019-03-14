@@ -9,7 +9,7 @@
         <span>·</span>
         <a href="https://github.com/wuhuihang?tab=repositories" target="_blank">GitHub</a>
         <!-- <span>·</span>
-        <router-link to="/Blogs">Blogs</router-link>-->
+        <a href="http://www.yidingan.com/" target="_blank">yidingan</a>-->
         <span>·</span>
         <router-link to="/login">Admin</router-link>
       </div>

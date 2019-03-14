@@ -116,5 +116,4 @@ httpServer.interceptors.response.use(
     return Promise.reject(err.response)
   }
 )
-
 export default httpServer

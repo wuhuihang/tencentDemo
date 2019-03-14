@@ -11,6 +11,15 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage"
+      :page-sizes="[10, 20, 30, 40]"
+      :page-size="pagesize"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+    ></el-pagination>
     <el-dialog title="编辑博客" :visible.sync="editFlag">
       <edit-blog :blog="blog" @editSuccess="editSuccess"></edit-blog>
     </el-dialog>
@@ -26,20 +35,32 @@ export default {
     return {
       editFlag: false,
       blog: {},
+      currentPage: 1,
+      pagesize: 10,
+      total: 0,
       blogs: []
     }
   },
   mounted () {
-    this.initData()
+    this.getBlogs()
   },
   components: {
     editBlog
   },
   methods: {
-    initData () {
-      this.$HttpServer.get('/api/blogs').then(blogs => {
-        this.blogs = blogs
+    getBlogs () {
+      this.$HttpServer.get('/api/blogs', { params: { currentPage: this.currentPage, pagesize: this.pagesize } }).then(data => {
+        this.blogs = data.list
+        this.total = data.count
       })
+    },
+    handleSizeChange (val) {
+      this.pagesize = val
+      this.getBlogs()
+    },
+    handleCurrentChange (val) {
+      this.currentPage = val
+      this.getBlogs()
     },
     handleEdit (item) {
       this.$HttpServer.get('/api/blogs/' + item.id).then(blog => {

@@ -20,7 +20,7 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/blogs'
+    redirect: '/about'
   },
   {
     path: '/frame',

@@ -10,6 +10,15 @@
         </li>
       </ul>
     </div>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage"
+      :page-sizes="[10, 20, 30, 40]"
+      :page-size="pagesize"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total"
+    ></el-pagination>
   </article>
 </template>
 
@@ -19,18 +28,35 @@ export default {
   name: 'blogs',
   data () {
     return {
+      currentPage: 1,
+      pagesize: 10,
+      total: 0,
       blogs: []
     }
   },
   mounted () {
-    let newBlogs = {}
-    this.$HttpServer.get('/api/outblogs').then(blogs => {
-      blogs.forEach((item, index) => {
-        (index === 0 || (index !== 0 && !newBlogs.hasOwnProperty(item.category))) && (newBlogs[item.category] = [])
-        newBlogs[item.category].push(item)
+    this.getBlogs()
+  },
+  methods: {
+    handleSizeChange (val) {
+      this.pagesize = val
+      this.getBlogs()
+    },
+    handleCurrentChange (val) {
+      this.currentPage = val
+      this.getBlogs()
+    },
+    getBlogs () {
+      let newBlogs = {}
+      this.$HttpServer.get('/api/outblogs', { params: { currentPage: this.currentPage, pagesize: this.pagesize } }).then(data => {
+        data.list.forEach((item, index) => {
+          (index === 0 || (index !== 0 && !newBlogs.hasOwnProperty(item.category))) && (newBlogs[item.category] = [])
+          newBlogs[item.category].push(item)
+        })
+        this.blogs = newBlogs
+        this.total = data.count
       })
-      this.blogs = newBlogs
-    })
+    }
   }
 }
 </script>
