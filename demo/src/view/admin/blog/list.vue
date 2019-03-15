@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     getBlogs () {
-      this.$HttpServer.get('/api/blogs', { params: { currentPage: this.currentPage, pagesize: this.pagesize } }).then(data => {
+      this.$HttpServer.get('/api/blogs', { currentPage: this.currentPage, pagesize: this.pagesize }).then(data => {
         this.blogs = data.list
         this.total = data.count
       })

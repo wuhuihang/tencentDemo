@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Loading } from 'element-ui'
 
 let httpServer = axios.create()
+let axiosGet = httpServer.get
 let loading
 let startLoading = () => {
   loading = Loading.service({
@@ -116,4 +117,6 @@ httpServer.interceptors.response.use(
     return Promise.reject(err.response)
   }
 )
+httpServer.get = (url, params, config) =>
+  axiosGet(url, Object.assign({ params }, config))
 export default httpServer

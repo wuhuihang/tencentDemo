@@ -48,7 +48,7 @@ export default {
     },
     getBlogs () {
       let newBlogs = {}
-      this.$HttpServer.get('/api/outblogs', { params: { currentPage: this.currentPage, pagesize: this.pagesize } }).then(data => {
+      this.$HttpServer.get('/api/outblogs', { currentPage: this.currentPage, pagesize: this.pagesize }).then(data => {
         data.list.forEach((item, index) => {
           (index === 0 || (index !== 0 && !newBlogs.hasOwnProperty(item.category))) && (newBlogs[item.category] = [])
           newBlogs[item.category].push(item)
