@@ -66,6 +66,9 @@ httpServer.interceptors.response.use(
   },
   err => {
     let msg = ''
+    if (!err.response.config.notShowLoading) {
+      tryHideFullScreenLoading()
+    }
     if (err && err.response) {
       switch (err.response.status) {
         case 400:
