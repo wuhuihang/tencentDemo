@@ -22,11 +22,11 @@ export default {
       blog: {}
     }
   },
-  watch: {
-    $route () {
-      this.getBlog()
-    }
-  },
+  // watch: {
+  //   $route () {
+  //     this.getBlog()
+  //   }
+  // },
   mounted () {
     this.getBlog()
   },
@@ -36,6 +36,10 @@ export default {
         this.blog = blog
       })
     }
+  },
+  beforeRouteUpdate (to, form, next) {
+    this.getBlog()
+    next()
   }
 }
 </script>
