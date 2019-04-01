@@ -31,6 +31,7 @@ export default {
 // @import "../../../../public/mixin";
 .fillcontain {
   width: 100%;
+  min-width: 960px;
   height: 100%;
 }
 .breadcrumb {

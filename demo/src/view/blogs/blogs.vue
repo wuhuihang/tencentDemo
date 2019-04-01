@@ -16,7 +16,7 @@
       :current-page="currentPage"
       :page-sizes="[10, 20, 30, 40]"
       :page-size="pagesize"
-      layout="total, sizes, prev, pager, next, jumper"
+      :layout="layoutList"
       :total="total"
     ></el-pagination>
   </article>
@@ -31,10 +31,11 @@ export default {
       currentPage: 1,
       pagesize: 10,
       total: 0,
+      layoutList: this.$Methods.isMobile() ? "total, sizes, jumper" : "total, sizes, prev, pager, next, jumper",
       blogs: []
     }
   },
-  mounted () {
+  created () {
     this.getBlogs()
   },
   methods: {

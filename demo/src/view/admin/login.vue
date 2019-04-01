@@ -64,6 +64,7 @@ export default {
   background-color: #2c3e50;
 }
 .login-box {
+  box-sizing: border-box;
   width: 320px;
   height: 210px;
   position: absolute;
@@ -98,7 +99,7 @@ export default {
   opacity: 0;
 }
 .login .el-input {
-  width: 296px;
+  width: 270px;
 }
 </style>
 <style>
