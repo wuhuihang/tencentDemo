@@ -86,6 +86,5 @@ footer {
   font-size: 12px;
   line-height: 24px;
   color: #888;
-  background: #fff;
 }
 </style>
