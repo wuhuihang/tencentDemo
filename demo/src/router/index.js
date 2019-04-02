@@ -3,15 +3,15 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const Frame = r => require(['@/view/frame'], r)
-const About = r => require(['@/view/about/about'], r)
-const Blogs = r => require(['@/view/blogs/blogs'], r)
-const Blog = r => require(['@/view/blogs/blog'], r)
-const Login = r => require(['@/view/admin/login'], r)
-const Manage = r => require(['@/view/admin/common/manage'], r)
-const Dashboard = r => require(['@/view/admin/blog/dashboard'], r)
-const CreateBlog = r => require(['@/view/admin/blog/create'], r)
-const BlogList = r => require(['@/view/admin/blog/list'], r)
+const Frame = () => import('@/view/frame')
+const About = () => import('@/view/about/about')
+const Blogs = () => import('@/view/blogs/blogs')
+const Blog = () => import('@/view/blogs/blog')
+const Login = () => import('@/view/admin/login')
+const Manage = () => import('@/view/admin/common/manage')
+const Dashboard = () => import('@/view/admin/blog/dashboard')
+const CreateBlog = () => import('@/view/admin/blog/create')
+const BlogList = () => import('@/view/admin/blog/list')
 
 const routes = [
   {
