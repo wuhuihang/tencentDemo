@@ -306,7 +306,7 @@ export default {
 <style>
 .hh-form-error {
   color: red;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 </style>
 

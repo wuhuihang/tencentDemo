@@ -60,7 +60,8 @@ export default {
 .login {
   width: 100%;
   height: 100%;
-  /* background: url("../../assets/img/bg.jpg") fixed center center; */
+  background: url("../../assets/img/bg.jpg") no-repeat center center;
+  background-size: cover;
   background-color: #2c3e50;
 }
 .login-box {
@@ -72,21 +73,22 @@ export default {
   left: 50%;
   margin-top: -105px;
   margin-left: -160px;
-  padding: 25px;
+  padding: 25px 0 25px 25px;
   border-radius: 5px;
-  text-align: center;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background: hsla(0, 0%, 100%, 0.3);
 }
 .login-header {
   position: absolute;
   width: 100%;
   top: -100px;
   left: 0;
+  text-align: center;
   font-size: 34px;
-  color: #fff;
+  color: #ccc;
 }
 .login-button {
-  width: 100%;
+  width: 270px;
   font-size: 16px;
 }
 .form-fade-enter-active,
