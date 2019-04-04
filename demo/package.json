@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "echarts": "^4.2.1",
     "element-ui": "^2.5.4",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",

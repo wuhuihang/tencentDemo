@@ -5,6 +5,7 @@ import Service from './service'
 import Components from './components'
 import ElementUI from 'element-ui'
 import VueQuillEditor from 'vue-quill-editor'
+import echarts from 'echarts'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
@@ -15,6 +16,7 @@ Vue.use(VueQuillEditor)
 Vue.use(ElementUI)
 Vue.use(Service)
 Vue.use(Components)
+Vue.prototype.$echarts = echarts
 
 new Vue({
   render: h => h(App),
