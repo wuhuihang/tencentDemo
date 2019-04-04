@@ -2,7 +2,7 @@
   <div class="dashboard">
     <div class="header">
       <div class="title">Dashboard</div>
-      <div class="date">23:14,Thursday,Feb 26,2018</div>
+      <div class="date">{{date}}</div>
     </div>
     <div class="echartsBox">
       <div id="smoothLine"></div>
@@ -10,11 +10,11 @@
     </div>
     <div class="itemList">
       <div class="newBlog">
-        <div class="num">111</div>
+        <div class="num">{{newBlogs}}</div>
         <div class="title">New Blogs</div>
       </div>
       <div class="visitor">
-        <div>222</div>
+        <div>0</div>
         <div>Day Visitor</div>
       </div>
       <div class="dashboard3"></div>
@@ -29,15 +29,29 @@ export default {
   name: 'dashboard',
   data () {
     return {
+      date: '',
+      newBlogs: 0,
+      line: [],
+      pie: []
     }
   },
   mounted () {
-    this.drawLine()
-    this.drawPie()
+    this.getDashboard()
   },
   computed: {
   },
   methods: {
+    getDashboard () {
+      this.$HttpServer.get('/api/dashboards', {}).then(data => {
+        let date = data.date.split(' ')
+        this.line = data.line
+        this.pie = data.pie
+        this.newBlogs = data.newBlogs
+        this.date = `${date[4].slice(0, 5)},${date[0]}${date[2]} ${date[1]},${date[3]}`
+        this.drawLine()
+        this.drawPie()
+      })
+    },
     drawPie () {
       let myChart = this.$echarts.init(document.getElementById('pie'))
       myChart.setOption({
@@ -60,13 +74,7 @@ export default {
             type: 'pie',
             radius: '55%',
             center: ['50%', '50%'],
-            data: [
-              { value: 11, name: 'Vue' },
-              { value: 2, name: 'JS' },
-              { value: 331, name: 'H5' },
-              { value: 11, name: 'CSS' },
-              { value: 41, name: 'NODE' }
-            ].sort(function (a, b) { return a.value - b.value; }),
+            data: this.pie.sort(function (a, b) { return a.value - b.value; }),
             label: {
               show: true,
               normal: {
@@ -131,7 +139,7 @@ export default {
           axisTick: {
             show: false
           },
-          data: ["1", "2", "3", "4", "5", "6"]
+          data: this.line.month
         },
         yAxis: {
           min: 'dataMin',
@@ -172,7 +180,7 @@ export default {
           },
           name: '博客数量',
           type: 'line',
-          data: [3, 2, 5, 7, 1, 2]
+          data: this.line.blogs
         }]
       });
     }
