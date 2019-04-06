@@ -12,6 +12,8 @@ const Manage = () => import('@/view/admin/common/manage')
 const Dashboard = () => import('@/view/admin/blog/dashboard')
 const CreateBlog = () => import('@/view/admin/blog/create')
 const BlogList = () => import('@/view/admin/blog/list')
+const H5list = () => import('@/view/h5/h5')
+const Responsive = () => import('@/view/h5/responsive')
 
 const routes = [
   {
@@ -32,6 +34,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: About
+      },
+      {
+        path: '/h5',
+        name: 'h5',
+        component: H5list
       },
       {
         path: '/blogs',
@@ -83,6 +90,11 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: '/responsive',
+    name: 'responsive',
+    component: Responsive
   }
 ]
 let router = new Router({

@@ -56,27 +56,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import "~@@/mixin.less";
 .login {
-  width: 100%;
-  height: 100%;
-  background: url("../../assets/img/bg.jpg") no-repeat center center;
   background-size: cover;
-  background-color: #2c3e50;
+  .wh(100%, 100%);
+  .bis("~@assets/img/bg.jpg");
+  .el-input {
+    width: 270px;
+  }
 }
 .login-box {
+  .wh(320px, 210px);
   box-sizing: border-box;
-  width: 320px;
-  height: 210px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -105px;
-  margin-left: -160px;
   padding: 25px 0 25px 25px;
   border-radius: 5px;
-  /* background-color: #fff; */
   background: hsla(0, 0%, 100%, 0.3);
+  .ctt();
 }
 .login-header {
   position: absolute;
@@ -99,9 +95,6 @@ export default {
 .form-fade-leave-active {
   transform: translate3d(0, -50px, 0);
   opacity: 0;
-}
-.login .el-input {
-  width: 270px;
 }
 </style>
 <style>

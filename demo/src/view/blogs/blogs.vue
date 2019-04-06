@@ -92,7 +92,4 @@ export default {
   font-family: pop, microsoft jhenghei, sans-serif;
   font-size: 14px;
 }
-.bg {
-  width: 100%;
-}
 </style>

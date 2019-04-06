@@ -1,3 +1,16 @@
+// rem 单位换算：定为 75px 只是方便运算，750px-75px、640-64px、1080px-108px，如此类推
+@vw_fontsize: 75rem; // 1rem=75px 使用时font-size:fontSize/@r
+@vw_design: 750rem; // 单位为rem为方便计算  实际为750px
+html {
+  font-size: (@vw_fontsize / (@vw_design / 2)) * 100vw;
+  @media screen and (max-width: 320px) {
+    font-size: 64px;
+  }
+  @media screen and (min-width: 540px) {
+    font-size: 108px;
+  }
+}
+
 html {
   width: 100%;
   height: 100%;
