@@ -1,30 +1,40 @@
 <template>
-  <article class="responsive">
-    <div class="slide">750x340</div>
+  <article class="responsive h5">
+    <div class="slide">vw搭配rem 750x340</div>
     <div class="banner">
-      <img>
+      <img src="~@assets/img/banner.png">
     </div>
     <nav class="flex">
-      <a>
-        <div>80x80</div>
-        <div class="name">导航1</div>
-      </a>
-      <a>
-        <div>80x80</div>
-        <div class="name">导航2</div>
-      </a>
-      <a>
-        <div>80x80</div>
-        <div class="name">导航3</div>
-      </a>
-      <a>
-        <div>80x80</div>
-        <div class="name">导航4</div>
-      </a>
-      <a>
-        <div>80x80</div>
-        <div class="name">导航5</div>
-      </a>
+      <router-link :to="{path:'/about'}" tag="div">
+        <div>
+          <img src="~@assets/img/home.png">
+        </div>
+        <div class="name">主页</div>
+      </router-link>
+      <router-link :to="{path:'/comming'}" tag="div">
+        <div>
+          <img src="~@assets/img/lottery.png">
+        </div>
+        <div class="name">抽奖</div>
+      </router-link>
+      <router-link :to="{path:'/comming'}" tag="div">
+        <div>
+          <img src="~@assets/img/redEnvelope.png">
+        </div>
+        <div class="name">红包</div>
+      </router-link>
+      <router-link :to="{path:'/comming'}" tag="div">
+        <div>
+          <img src="~@assets/img/ranking.png">
+        </div>
+        <div class="name">排名</div>
+      </router-link>
+      <router-link :to="{path:'/comming'}" tag="div">
+        <div>
+          <img src="~@assets/img/chat.png">
+        </div>
+        <div class="name">评论</div>
+      </router-link>
     </nav>
     <div class="sale">750x286</div>
   </article>
@@ -64,17 +74,19 @@ export default {
   padding: 10 / @r;
   font-size: 12 / @r;
   text-align: center;
-  a {
+  div {
     flex: 1;
-    display: block;
     div:first-child {
       .wh(40 / @r, 40 / @r);
-      background: #cbcbcb;
       margin: 0 auto;
       line-height: 40 / @r;
+      img {
+        width: 100%;
+      }
     }
     .name {
       font-size: 12 / @r;
+      color: #222;
       text-align: center;
     }
   }

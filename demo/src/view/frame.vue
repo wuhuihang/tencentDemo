@@ -7,7 +7,7 @@
       <div class="router">
         <router-link to="/Blogs">Blogs</router-link>
         <span>·</span>
-        <router-link to="/H5">H5</router-link>
+        <router-link to="/responsive">H5</router-link>
         <span>·</span>
         <a href="https://github.com/wuhuihang?tab=repositories" target="_blank">GitHub</a>
         <!-- <span>·</span>
