@@ -31,7 +31,7 @@ let tryHideFullScreenLoading = () => {
   }
 }
 
-httpServer.defaults.timeout = 30000
+httpServer.defaults.timeout = 8000
 httpServer.interceptors.request.use(
   config => {
     if (!config.notShowLoading) {
@@ -66,7 +66,7 @@ httpServer.interceptors.response.use(
   },
   err => {
     let msg = ''
-    if (!err.response.config.notShowLoading) {
+    if (!err.config.notShowLoading) {
       tryHideFullScreenLoading()
     }
     if (err && err.response) {
