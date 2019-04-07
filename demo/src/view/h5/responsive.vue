@@ -64,7 +64,7 @@
         <div class="section-bottom" style="background: rgb(247,214,107);">to be continue</div>
       </div>
     </div>
-    <div class="ends">_____ 我是有底线的 _____</div>
+    <div class="ends">______ 我是有底线的 ______</div>
   </article>
 </template>
 
