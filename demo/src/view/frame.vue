@@ -26,7 +26,7 @@
 export default {
   name: 'frame',
   mounted () {
-
+    document.body.addEventListener('touchstart', function () { });
   },
   components: {
   }

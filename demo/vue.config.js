@@ -12,7 +12,7 @@ module.exports = {
       .set('@@', resolve('public'))
   },
   devServer: {
-    // host: "0.0.0.0",
+    host: '0.0.0.0',
     port: '8080', //代理端口
     proxy: {
       '/api/': {
