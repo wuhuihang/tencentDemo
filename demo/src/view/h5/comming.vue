@@ -23,6 +23,11 @@ export default {
 @import "~@@/mixin.less";
 .comming {
   .wh(100%, 100%);
-  cursor: pointer;
+  .ctt {
+    img:first-child {
+      cursor: pointer;
+    }
+    text-align: center;
+  }
 }
 </style>

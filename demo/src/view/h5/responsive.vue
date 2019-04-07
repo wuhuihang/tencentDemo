@@ -1,15 +1,22 @@
 <template>
   <article class="responsive h5">
-    <div class="slide">vw搭配rem 750x340</div>
+    <div class="slide">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background: rgb(51,149,224);">如鱼饮水，冷暖自知。</div>
+        <div class="swiper-slide" style="background: rgb(201,231,255);">身体常动，内心常静。</div>
+        <div class="swiper-slide" style="background: rgb(182,224,255);">时间太瘦，指缝太宽。</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
     <div class="banner">
-      <img src="~@assets/img/banner.png">
+      <img @click="goAbout" src="~@assets/img/banner.png">
     </div>
     <nav class="flex">
-      <router-link :to="{path:'/about'}" tag="div">
+      <router-link :to="{path:'/comming'}" tag="div">
         <div>
-          <img src="~@assets/img/home.png">
+          <img src="~@assets/img/animation.png">
         </div>
-        <div class="name">主页</div>
+        <div class="name">动画</div>
       </router-link>
       <router-link :to="{path:'/comming'}" tag="div">
         <div>
@@ -36,15 +43,66 @@
         <div class="name">评论</div>
       </router-link>
     </nav>
-    <div class="sale">750x286</div>
+    <div class="sale">vw搭配rem实现自适应</div>
+    <div class="blogs">
+      <div class="swiper-wrapper">
+        <div
+          class="swiper-slide"
+          v-for="(item,index) in lastestBlogs"
+          :key="index"
+          @click="goBlog(item.id)"
+        >{{item.title}}</div>
+        <div class="swiper-slide">1</div>
+        <div class="swiper-slide">2</div>
+        <div class="swiper-slide">3</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-left" style="background: rgb(161,222,201);">未完待续</div>
+      <div class="section-right">
+        <div class="section-top" style="background: rgb(240,170,160);">no end</div>
+        <div class="section-bottom" style="background: rgb(247,214,107);">to be continue</div>
+      </div>
+    </div>
+    <div class="ends">_____ 我是有底线的 _____</div>
   </article>
 </template>
 
 <script>
-
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
 export default {
   name: 'responsive',
-  components: {
+  data () {
+    return {
+      lastestBlogs: []
+    }
+  },
+  created () {
+    this.$HttpServer.get('/api/h5blogs', {}).then(data => {
+      this.lastestBlogs = data.list
+    })
+  },
+  mounted () {
+    new Swiper('.slide', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      }
+    })
+    new Swiper('.blogs', {
+      loop: true,
+      direction: 'vertical',
+      autoplay: true
+    })
+  },
+  methods: {
+    goAbout () {
+      this.$router.push({ path: "/about" })
+    },
+    goBlog (id) {
+      this.$router.push({ path: '/blog', query: { id: id } })
+    }
   }
 }
 </script>
@@ -52,10 +110,15 @@ export default {
 <style lang="less" scoped>
 @import "~@@/mixin.less";
 .slide {
+  position: relative;
+  overflow: hidden;
+}
+.slide .swiper-slide {
+  .ft(25 / @r, 170 / @r, #fff);
   height: 170 / @r;
   background: #ccc;
   text-align: center;
-  .ft(25 / @r, 170 / @r, #666);
+  text-align: center;
 }
 .banner {
   .wh(100%, 0);
@@ -93,8 +156,49 @@ export default {
 }
 .sale {
   height: 143 / @r;
-  background: #eee;
+  background: rgb(242, 241, 239);
   text-align: center;
   .ft(25 / @r, 143 / @r, #666);
+}
+.blogs {
+  .wh(auto, (50 / @r));
+  background: url("~@assets/img/notice.png") no-repeat (15 / @r) center;
+  background-size: (30 / @r) (30 / @r);
+  padding-left: (60 / @r);
+  overflow: hidden;
+}
+.blogs-container {
+  .wh(100%, (50 / @r));
+  color: #fff;
+}
+.blogs .swiper-slide {
+  line-height: 50 / @r;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.section {
+  .wh(100%, 160 / @r);
+  line-height: (160 / @r);
+  text-align: center;
+  font-size: (18 / @r);
+  .section-left {
+    float: left;
+    .wh(50%, 160 / @r);
+    line-height: (160 / @r);
+  }
+  .section-right {
+    float: right;
+    .wh(50%, 160 / @r);
+    div {
+      height: 50%;
+      line-height: (80 / @r);
+    }
+  }
+}
+.ends {
+  .wh(100%, 72 / @r);
+  .ft(14 / @r, 72 / @r, #666);
+  text-align: center;
 }
 </style>
