@@ -4,10 +4,12 @@
     <div v-html="blog.content"></div>
     <!-- <div></div> -->
     <div class="blog-router">
-      <div v-if="blog&&blog.nextBlog&&blog.nextBlog.title">下一篇：
+      <div v-if="blog&&blog.nextBlog&&blog.nextBlog.title">
+        下一篇：
         <router-link :to="{path:'/blog',query:{id:blog.nextBlog.id}}">{{blog.nextBlog.title}}</router-link>
       </div>
-      <div v-if="blog&&blog.prevBlog&&blog.prevBlog.title">上一篇：
+      <div v-if="blog&&blog.prevBlog&&blog.prevBlog.title">
+        上一篇：
         <router-link :to="{path:'/blog',query:{id:blog.prevBlog.id}}">{{blog.prevBlog.title}}</router-link>
       </div>
     </div>
@@ -22,11 +24,11 @@ export default {
       blog: {}
     }
   },
-  // watch: {
-  //   $route () {
-  //     this.getBlog()
-  //   }
-  // },
+  watch: {
+    $route () {
+      this.getBlog()
+    }
+  },
   mounted () {
     this.getBlog()
   },
@@ -36,11 +38,11 @@ export default {
         this.blog = blog
       })
     }
-  },
-  beforeRouteUpdate (to, form, next) {
-    this.getBlog()
-    next()
   }
+  // ,beforeRouteUpdate (to, form, next) {
+  //   this.getBlog()
+  //   next()
+  // }
 }
 </script>
 

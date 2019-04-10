@@ -74,12 +74,12 @@ export default {
           type: 'success',
           message: '删除成功'
         });
-        this.initData()
+        this.getBlogs()
       })
     },
     editSuccess (isCancel) {
       this.editFlag = false
-      !isCancel && this.initData()
+      !isCancel && this.getBlogs()
     }
   }
 }
