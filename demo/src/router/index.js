@@ -13,6 +13,7 @@ const Dashboard = () => import('@/view/admin/blog/dashboard')
 const CreateBlog = () => import('@/view/admin/blog/create')
 const BlogList = () => import('@/view/admin/blog/list')
 const Responsive = () => import('@/view/h5/responsive')
+const Animation = () => import('@/view/h5/animation')
 const Comming = () => import('@/view/h5/comming')
 
 const routes = [
@@ -90,6 +91,11 @@ const routes = [
     path: '/responsive',
     name: 'responsive',
     component: Responsive
+  },
+  {
+    path: '/animation',
+    name: 'animation',
+    component: Animation
   },
   {
     path: '/comming',

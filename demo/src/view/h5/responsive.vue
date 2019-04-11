@@ -12,7 +12,7 @@
       <img @click="goAbout" src="~@assets/img/banner.png">
     </div>
     <nav class="flex">
-      <router-link :to="{path:'/comming'}" tag="div">
+      <router-link :to="{path:'/animation'}" tag="div">
         <div>
           <img src="~@assets/img/animation.png">
         </div>
