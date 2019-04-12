@@ -2,12 +2,12 @@
   <article class="animation h5">
     <div class="demo">
       <div class="cube show-default show-left">
-        <div class="cube-face is-front">1</div>
-        <div class="cube-face is-back">2</div>
-        <div class="cube-face is-right">3</div>
-        <div class="cube-face is-left">4</div>
-        <div class="cube-face is-top">5</div>
-        <div class="cube-face is-bottom">6</div>
+        <div class="cube-face is-top">Top</div>
+        <div class="cube-face is-bottom">Bottom</div>
+        <div class="cube-face is-left">Left</div>
+        <div class="cube-face is-right">Right</div>
+        <div class="cube-face is-back">Back</div>
+        <div class="cube-face is-front">Front</div>
       </div>
     </div>
   </article>
@@ -24,48 +24,91 @@ export default {
 
 <style lang="less" scoped>
 @import "~@@/mixin.less";
-@cube-size: 200px;
-@cube-radius: @cube-size / 2;
+@side: 200px;
+@radius: @side / 2;
+@keyframes top {
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(90deg) translateZ(@radius);
+    background: #a0eee1;
+  }
+}
+@keyframes bottom {
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(-90deg) translateZ(@radius);
+    background: #bee7e9;
+  }
+}
+@keyframes left {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-90deg) translateZ(@radius);
+    background: #beedc7;
+  }
+}
+@keyframes right {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(90deg) translateZ(@radius);
+    background: #e6ceac;
+  }
+}
+@keyframes back {
+  from {
+    transform: translateZ(0);
+  }
+  to {
+    transform: translateZ(-@radius);
+    background: #ecad9e;
+  }
+}
+@keyframes front {
+  from {
+    transform: translateZ(0);
+  }
+  to {
+    transform: translateZ(@radius);
+    background: #f4606c;
+  }
+}
 @keyframes autoRotate {
-  // show-front
   0%,
   100% {
-    transform: translateZ(-@cube-radius);
+    transform: rotateX(0);
   }
-  // show-back
   16.5% {
-    transform: translateZ(-@cube-radius) rotateX(-180deg);
+    transform: rotateX(-180deg);
   }
-  // show-left
   33% {
-    transform: translateZ(-@cube-radius) rotateY(90deg);
+    transform: rotateY(90deg);
   }
-  // show-right
   49.5% {
-    transform: translateZ(-@cube-radius) rotateY(-90deg);
+    transform: rotateY(-90deg);
   }
-  // show-top
   66% {
-    transform: translateZ(-@cube-radius) rotateX(-90deg);
+    transform: rotateX(-90deg);
   }
-  // show-bottom
   82.5% {
-    transform: translateZ(-@cube-radius) rotateX(90deg);
+    transform: rotateX(90deg);
   }
 }
 .animation {
   .wh(100%, 100%);
-}
-.test {
-  .wh(100px, 100px);
-  border: 1px solid #000;
-  margin: 30px auto;
-  transform: rotateX(30deg);
+  background: #eee;
 }
 .demo {
-  width: @cube-size;
-  height: @cube-size;
-  perspective: 1000px;
+  width: @side;
+  height: @side;
+  perspective: 800px;
   position: relative;
   margin: 100px auto;
 }
@@ -75,7 +118,7 @@ export default {
   transform-style: preserve-3d;
   font-size: 36px;
   position: absolute;
-  animation: autoRotate ease 18s alternate infinite;
+  animation: autoRotate ease 18s 12s infinite;
   &-face {
     border: 2px solid #000;
     width: 100%;
@@ -84,26 +127,26 @@ export default {
     overflow: hidden;
     opacity: 0.6;
     text-align: center;
-    line-height: @cube-size;
+    line-height: @side;
     backface-visibility: visible;
     background: #fff;
-    &.is-front {
-      transform: translateZ(@cube-radius);
-    }
-    &.is-back {
-      transform: rotateX(-180deg) translateZ(@cube-radius);
-    }
-    &.is-right {
-      transform: rotateY(90deg) translateZ(@cube-radius);
-    }
-    &.is-left {
-      transform: rotateY(-90deg) translateZ(@cube-radius);
-    }
     &.is-top {
-      transform: rotateX(90deg) translateZ(@cube-radius);
+      animation: top ease 2s 1 forwards;
     }
     &.is-bottom {
-      transform: rotateX(-90deg) translateZ(@cube-radius);
+      animation: bottom ease 2s 2s 1 forwards;
+    }
+    &.is-left {
+      animation: left ease 2s 4s 1 forwards;
+    }
+    &.is-right {
+      animation: right ease 2s 6s 1 forwards;
+    }
+    &.is-back {
+      animation: back ease 2s 8s 1 forwards;
+    }
+    &.is-front {
+      animation: front ease 2s 10s 1 forwards;
     }
   }
   img {
