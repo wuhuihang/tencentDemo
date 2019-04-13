@@ -14,6 +14,7 @@ const CreateBlog = () => import('@/view/admin/blog/create')
 const BlogList = () => import('@/view/admin/blog/list')
 const Responsive = () => import('@/view/h5/responsive')
 const Animation = () => import('@/view/h5/animation')
+const Lottery = () => import('@/view/h5/lottery')
 const Comming = () => import('@/view/h5/comming')
 
 const routes = [
@@ -96,6 +97,11 @@ const routes = [
     path: '/animation',
     name: 'animation',
     component: Animation
+  },
+  {
+    path: '/lottery',
+    name: 'lottery',
+    component: Lottery
   },
   {
     path: '/comming',

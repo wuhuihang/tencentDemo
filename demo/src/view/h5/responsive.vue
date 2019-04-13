@@ -18,7 +18,7 @@
         </div>
         <div class="name">动画</div>
       </router-link>
-      <router-link :to="{path:'/comming'}" tag="div">
+      <router-link :to="{path:'/lottery'}" tag="div">
         <div>
           <img src="~@assets/img/lottery.png">
         </div>
