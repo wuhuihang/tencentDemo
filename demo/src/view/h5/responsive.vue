@@ -52,9 +52,6 @@
           :key="index"
           @click="goBlog(item.id)"
         >{{item.title}}</div>
-        <div class="swiper-slide">1</div>
-        <div class="swiper-slide">2</div>
-        <div class="swiper-slide">3</div>
       </div>
     </div>
     <div class="section">
