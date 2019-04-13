@@ -123,6 +123,7 @@ export default {
       }
       .active {
         position: relative;
+        overflow: hidden;
         &:after {
           .wh(100%, 100%);
           box-sizing: border-box;
@@ -130,8 +131,8 @@ export default {
           position: absolute;
           left: 0;
           top: 0;
-          border: 50px solid rgba(255, 255, 255, 0.5);
-          border-radius: 50px;
+          border: 0.3rem solid rgba(255, 255, 255, 0.3);
+          border-radius: 0.3rem;
           display: block;
         }
       }
