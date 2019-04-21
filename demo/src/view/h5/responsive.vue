@@ -76,6 +76,7 @@ export default {
     }
   },
   created () {
+    // this.$message.error('普通消息') // test 组件
     this.$HttpServer.get('/api/h5blogs', {}).then(data => {
       this.lastestBlogs = data.list
     })
