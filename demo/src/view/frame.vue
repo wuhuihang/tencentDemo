@@ -17,14 +17,14 @@
       </div>
     </header>
     <router-view></router-view>
-    <footer>Copyright ©2019 wuhuihang All Rights Reserved. Record No. 粤ICP备19016435号-1</footer>
+    <footer>Copyright ©2019 wuhuihang All Rights Reserved. Record No. <a href="http://beian.miit.gov.cn" target="_blank">粤ICP备19016435号</a></footer>
   </div>
 </template>
 
 <script>
 export default {
   name: 'frame',
-  mounted () {
+  mounted() {
     document.body.addEventListener('touchstart', function () { });
   },
   components: {
@@ -81,7 +81,8 @@ export default {
 .router span {
   padding: 0 10px;
 }
-footer {
+footer,
+footer a {
   width: 100%;
   padding: 12px 0;
   font-size: 12px;
