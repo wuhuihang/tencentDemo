@@ -13,7 +13,7 @@
     "element-ui": "^2.5.4",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",
-    "swiper": "^4.5.0",
+    "swiper": "^6.5.1",
     "vue": "^2.5.22",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.2"
